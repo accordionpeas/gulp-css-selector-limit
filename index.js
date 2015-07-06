@@ -24,13 +24,14 @@ var failReporter = function(){
 		}
 		cb(null, file);
 
-	}, function(){
+	}, function(done){
 		if(fails.length){
 			this.emit('error',  new PluginError(PLUGIN_NAME, {
 				message: gutil.colors.yellow('CSS selectors are over the limit for the following files: ' + fails.join(', ')),
 				showStack: false
 			}));
 		}
+		done();
 	});
 };
 

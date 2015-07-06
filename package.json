@@ -3,7 +3,7 @@
 	
 	"description": "Gulp plugin that determines whether CSS files contain more selectors than IE's limit of 4095",
 	
-	"version": "0.1.0",
+	"version": "0.1.1",
 	
 	"homepage": "https://github.com/accordionpeas/gulp-css-selector-limit",
 	
@@ -20,8 +20,6 @@
 	"bugs": {
 		"url": "https://github.com/accordionpeas/gulp-css-selector-limit/issues"
 	},
-	
-	"main": "gulpfile.js",
 	
 	"dependencies": {
 		"css-selector-limit": "0.3.x",

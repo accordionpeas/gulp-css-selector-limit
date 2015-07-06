@@ -18,10 +18,10 @@ In your project's gulpfile you can add the css-selector-limit task like so.
 
 ```js
 var gulp = require('gulp'),
-	cssSelectorLimit = require('./index');
+	cssSelectorLimit = require('gulp-css-selector-limit');
 
 gulp.task('css-selector-limit', function(){
-	return gulp.src('node_modules/css-selector-limit/tests/**/*.css')
+	return gulp.src('style/**/*.css')
 		.pipe(cssSelectorLimit())
 		.pipe(cssSelectorLimit.reporter('default'))
 		.pipe(cssSelectorLimit.reporter('fail'));

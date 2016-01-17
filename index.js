@@ -47,12 +47,26 @@ var defaultReporter = function(){
 	});
 };
 
+var slimReporter = function(){
+	return through.obj(function(file, enc, cb){
+		if(file.cssSelectorLimit && !file.cssSelectorLimit.ok){
+			gutil.log(gutil.colors.yellow('\n'));
+			gutil.log(gutil.colors.yellow(file.path + ' is over the css selector limit.'));
+			gutil.log(gutil.colors.yellow('\n'));
+		}
+		cb(null, file);
+	});
+};
+
 cssSelectorLimitPlugin.reporter = function(reporter){
 	if(reporter === 'default'){
 		return defaultReporter();
 	}
 	else if(reporter === 'fail'){
 		return failReporter();
+	}
+	else if(reporter === 'slim'){
+		return slimReporter();
 	}
 	else if(typeof reporter === 'function'){
 		return reporter();
